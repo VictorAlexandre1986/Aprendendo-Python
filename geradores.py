@@ -1,57 +1,21 @@
-import sys
-import time
+from time import sleep
 
-lista = list(range(1000))
 
-#Tamanho da lista
-print(sys.getsizeof(lista))
-
-def gerador():
-    for n in range(10):
-        yield(n)
-        time.sleep(0.1)
-        
-g = gerador()
-
-#Verificando se é um gerador 
-print(f"É um gerador ? {hasattr(g,'__next__')}")
-
-#Utilizando um gerador 
-print('Usando o método next ',next(g))
-
-#Utilizando um gerador
-for x in g:
+#O valor é entregue aos poucos em uma função geradora,economizando memoria
+gerador = (x for x in range(100))
+for x in gerador:
     print(x)
+    sleep(0.1)    
     
-def gerador2():
-    variavel="valor 1"
-    yield(variavel)
-    variavel="valor 2"
-    yield(variavel)
-    variavel="valor 3"
-    yield(variavel)
+
+cor = ['preto','branco']
+tamanho = ['P','M','G']
+for camisa in ('%s %s' %(c,t) for c in cor for t in tamanho):
+    print(camisa)    
     
-for x in gerador2():
-    print(x)
     
-y = gerador2()
-
-for x in y:
-    print(x)
-    
-#criando gerador
-gera = (x for x in range(10000))
-
-#Tamanho do gerador
-print(f'Tamanho do gerador é : {sys.getsizeof(gera)} bytes')
-
-
-nome="Victor Alexandre Braga Ribeiro"
-gerador = (letra for letra in nome)
-
-print(next(gerador))
-print(next(gerador))
-print(next(gerador))
-print(next(gerador))
-print(next(gerador))
-print(next(gerador))
+t=[1,2,3,4,5]
+u=[1,2,3,4,5]    
+prodCartesiano = ( (x,y) for x in t for y in u)
+for valor in prodCartesiano:
+    print(valor) 
