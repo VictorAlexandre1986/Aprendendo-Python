@@ -1,51 +1,37 @@
-def var(msg):
-    print(msg)
-    
-def dump():
-    return var
+def fatorial(n):
+    '''return n!'''
+    return 1 if n < 2 else n * fatorial(n-1)
 
+print(fatorial(5))
 
-variavel = dump()('oi')
+#atribuindo uma função a uma variavel
+variavel = fatorial
+print(variavel(3))
 
-def func(a1,a2,a3,nome='Victor'):
-    return a1,a2,a3,nome
+#passando uma função como parametro
+print(list(map(fatorial,range(4))))
 
-variaveis=func('1','2','3')
+#Ordenando pelo tamanho das strings
+fruits = ['apple','orange','cherry','banana','strawberry']
+print(sorted(fruits, key=len))
 
-print(variaveis[3])
+#Invertendo a ordem das letras e ordenando as palavra em ordem alfabetica
+def reverse (word):
+    return word[::-1]
+print(sorted(fruits,key=reverse))
 
+#Funções com qtd variavel de argumentos
+def soma(*args):
+    acum=0;
+    for i in args:
+        acum += i
 
-def func1(*args):
-    print(*args)
+#É possível usar list comprehensions no lugar de map       
+print([fatorial(n) for n in range(6)])
+print([fatorial(n) for n in range(6) if n % 2 == 0])
 
+print(list(map(fatorial,filter(lambda x:x % 2==0 , range(6)))))
 
-func1(1,2,3,4,5)
+#Não só funções Python são objetos reais, como também podemos fazer objetos
+#Python quaisquer se comportarem como funções, basta implementar o metodo de instancia __call__
 
-
-lista=[1,2,3,4,5,6]
-
-n1,n2,*n=lista
-
-print(*n)
-
-print(*lista)
-
-def seila(*args):
-    print(args)
-    
-seila(*lista,7)
-
-
-def seila2(**kwargs):
-    print(kwargs)
-    
-    idade = kwargs.get('idade')
-    
-    if idade is not None:
-        print(idade)
-    
-    
-
-seila2(nome="Victor",sobrenome="Alexandre",idade=33) 
-
-  
