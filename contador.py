@@ -1,18 +1,12 @@
 from itertools import count
 
-lista = ['Victor','Alexandre','Braga','Ribeiro']
+contador = count(start=1,step=1)
+lista=['A','B','C','D','E']
+lista = zip(contador,lista)
+print(list(lista))
 
-contador = count(start=2,step=2)
-
-for x in contador:
-    print(x)
-    if x == 20:
+contador = count(start=1,step=1)
+for valor in contador:
+    if valor == 10:
         break
-    
-
-lista2=zip(contador,lista)
-for x in lista2:
-    print(x)
-    
-        
-    
+    print(valor)
