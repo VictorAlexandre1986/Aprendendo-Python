@@ -35,3 +35,5 @@ print(f'Numeros divisiveis por dois e três : {l6}')
 #----------------------------------------
 l7 = [v if v % 3 == 0 else 0 for v in l5]
 print(f'Divisiveis por 3 : {l7}')
+
+18 = [v if v % 3 == 0 and v % 8 == 0 else 0 for v in 15]
