@@ -1,34 +1,31 @@
-produtos = [
-    {'nome':'p1', 'preco':10.10},
-    {'nome':'p2', 'preco':13.25},
-    {'nome':'p3', 'preco':29.12},
-    {'nome':'p4', 'preco':45.04},
-    {'nome':'p5', 'preco':5.38},
-    {'nome':'p6', 'preco':17.59},
-    {'nome':'p7', 'preco':31.70},
-    {'nome':'p8', 'preco':21.45},
-    {'nome':'p9', 'preco':59.19},
-    {'nome':'p10', 'preco':2.12},
-]
+if __name__=='__main__':
+    lista=[
+        {'produto': 'camiseta', 'preco': 19.32},
+        {'produto': 'bermuda', 'preco': 42.12},
+        {'produto': 'blusa', 'preco': 70.50},
+        {'produto': 'jaqueta', 'preco': 215.00}
+    ]
 
-lista = [1,2,3,4,5,6,7,8,9]
+    def filtro(produto):
+        return produto['preco'] >= 50
 
-def maiores(produto):
-    if produto['preco']>20:
-        return True
+    selecionados = filter(filtro,lista)
+    print(*list(selecionados), sep='\n')
 
-nova_lista = filter(maiores,produtos)
 
-for x in nova_lista:
-    print(x)
-    
 
-def novo_campo(produto):
-    if produto['preco']>30:
-        produto['é_caro']=True
-    return produto 
+    selecionados2 = [prod for prod in lista if prod['preco'] >= 50]
+    print(selecionados2)
 
-nova_lista2 = filter(novo_campo,produtos)
 
-for x in nova_lista2:
-    print(x)
+
+
+
+    vetor = list(range(1,50,1))
+
+    def multiplos(valor):
+        return valor % 5 == 0
+
+    multiplos = filter(multiplos, vetor)
+
+    print(list(multiplos))
